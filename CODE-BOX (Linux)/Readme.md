@@ -32,7 +32,11 @@ After typing sudo -l found one command named as backy.sh that can be run by any 
 ![alt text](image-6.png)
 
 backy.sh is backing up the directories by utiltizing the backy utility.
+
 The backy utility begins by reading the task.json file, which contains the backup configuration.
+The task.json file is shown below:
+![alt text](image-7.png)
+
 
 ```bash
 #!/bin/bash
@@ -77,6 +81,37 @@ done
 /usr/bin/backy "$json_file"
 
 ```
+
+For User.txt flag append the user.txt in the task.json file. It will backup the user.txt as an archive in the destination folder.
+```json
+martin@code:~/backups$ cat task.json 
+{
+        "destination": "/home/martin/backups/",
+        "multiprocessing": true,
+        "verbose_log": false,
+        "directories_to_archive": [
+                "/home/app-production/app/user.txt"
+        ],
+
+        "exclude": [
+                ".*"
+        ]
+}
+
+```
+
+After appending the user.txt run the back.sh script with the argument passed as task.json file
+![alt text](image-8.png)
+
+It will archive the user.txt in the directory as mentioned 
+![alt text](image-9.png)
+
+User flag Owned 
+
+
+For Root flag there is flaw in the backy.sh code 
+
+
 
 
 
