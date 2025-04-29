@@ -28,6 +28,15 @@ By quering database found username and password of two users
 Successfully logged in as martin 
 ![alt text](image-5.png)
 
+After typing sudo -l found one command named as backy.sh that can be run by any user 
+![alt text](image-6.png)
+
+
+
+
+
+
+
 
 
 
