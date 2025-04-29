@@ -22,5 +22,16 @@ Database:
 SQLAlchemy with SQLite (sqlite:////home/app-production/app/instance/database.db).
 
 After this look for users and password in the database
+By quering database found username and password of two users
+![alt text](image-4.png)
+
+Successfully logged in as martin 
+![alt text](image-5.png)
+
+
+
+
+
+
 
 
