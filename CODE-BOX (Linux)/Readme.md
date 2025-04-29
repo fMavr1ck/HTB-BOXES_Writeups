@@ -34,7 +34,8 @@ After typing sudo -l found one command named as backy.sh that can be run by any 
 backy.sh is backing up the directories by utiltizing the backy utility.
 The backy utility begins by reading the task.json file, which contains the backup configuration.
 
-''' #!/bin/bash
+'''bash
+#!/bin/bash
 
 if [[ $# -ne 1 ]]; then
     /usr/bin/echo "Usage: $0 <task.json>"
@@ -73,7 +74,8 @@ for dir in $directories_to_archive; do
     fi
 done
 
-/usr/bin/backy "$json_file" '''
+/usr/bin/backy "$json_file" 
+'''
 
 
 
